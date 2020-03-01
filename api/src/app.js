@@ -11,8 +11,11 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
 
+app.use('/todos', todosRouter)
+
 app.get('/ping', (req, res) => {
   res.send('pong!')
 })
+
 
 export default app

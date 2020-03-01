@@ -1,10 +1,8 @@
 import express from 'express'
+import { index } from '../controllers/todos-controller'
 
 const router = express.Router()
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource')
-})
+router.get('/', index)
 
 export default router
