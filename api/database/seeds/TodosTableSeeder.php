@@ -14,13 +14,9 @@ class TodosTableSeeder extends Seeder
     {
         Todo::truncate();
 
-        $faker = \Faker\Factory::create();
-
-        for ($i = 0; $i < 10; $i++) {
+        for ($i = 0; $i < 5; $i++) {
             Todo::create([
-                'task' => $faker->sentence,
-                'completed' => false,
-                'archived' => false
+                'task' => 'seeded task ' . ($i + 1)
             ]);
         }
     }

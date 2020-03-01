@@ -22,7 +22,7 @@ export default {
     GET_TODOS: async ({ commit }) => {
       const res = await axios.get('http://localhost:3000/api/todos')
 
-      console.log(res)
+      commit('SET_TODOS', res.data)
     },
     ADD_TODO: ({ commit, state }, task) => {
       commit('ADD_TODO', {

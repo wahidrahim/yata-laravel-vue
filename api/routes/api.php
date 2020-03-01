@@ -19,6 +19,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('todos', function() {
+Route::get('todos', function () {
     return Todo::all();
+});
+
+Route::post('todos', function (Request $request) {
+    return Todo::create($request->all());
 });
