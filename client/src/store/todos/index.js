@@ -7,10 +7,17 @@ export default {
     current: ({ todos }) => todos.filter(todo => !todo.archived),
     archived: ({ todos }) => todos.filter(todo => todo.archived)
   },
-  mutations: {},
+  mutations: {
+    SET_TODOS: (state, todos) => (state.todos = todos),
+    SET_TASK_COMPLETION: (state, { id, completed }) => {
+      const todo = state.todos.find(todo => todo.id === id)
+
+      todo.completed = completed
+    }
+  },
   actions: {
-    GET_TODOS: ({ state }) => {
-      state.todos = [
+    GET_TODOS: ({ commit }) => {
+      commit('SET_TODOS', [
         {
           id: 1,
           task: 'some task',
@@ -39,7 +46,10 @@ export default {
           completed: true,
           createdAt: '2020-01-01'
         }
-      ]
+      ])
+    },
+    UPDATE_TODO: ({ commit }, { id, completed }) => {
+      commit('SET_TASK_COMPLETION', { id, completed })
     }
   }
 }

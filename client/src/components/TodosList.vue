@@ -1,7 +1,17 @@
 <template>
-  <b-list-group>
-    <b-list-group-item v-for='todo in todos' :key='todo.id'>
-      {{ todo.task }}
+  <b-list-group class="todos-list">
+    <b-list-group-item v-for="todo in todos" :key="todo.id">
+      <b-form-checkbox
+        @change="updateTodo(todo.id, $event)"
+        :checked="todo.completed"
+      >
+        <strike v-if="todo.completed">
+          {{ todo.task }}
+        </strike>
+        <span v-else>
+          {{ todo.task }}
+        </span>
+      </b-form-checkbox>
     </b-list-group-item>
   </b-list-group>
 </template>
@@ -12,6 +22,11 @@ export default {
     todos: {
       required: true,
       type: Array
+    }
+  },
+  methods: {
+    updateTodo(id, completed) {
+      this.$store.dispatch('todos/UPDATE_TODO', { id, completed })
     }
   }
 }
