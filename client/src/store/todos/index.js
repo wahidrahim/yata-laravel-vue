@@ -12,24 +12,28 @@ export default {
     GET_TODOS: ({ state }) => {
       state.todos = [
         {
+          id: 1,
           task: 'some task',
           archived: false,
           completed: false,
           createdAt: '2020-01-01'
         },
         {
+          id: 2,
           task: 'some other task',
           archived: true,
           completed: true,
           createdAt: '2020-01-01'
         },
         {
-          task: 'some other task',
+          id: 3,
+          task: 'some other archived task',
           archived: true,
           completed: false,
           createdAt: '2020-01-01'
         },
         {
+          id: 4,
           task: 'yet another task',
           archived: false,
           completed: true,
