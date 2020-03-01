@@ -31,3 +31,11 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.todos-list ::v-deep .list-group-item:first-child {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-top: none;
+}
+</style>

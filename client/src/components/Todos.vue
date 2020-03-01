@@ -1,5 +1,5 @@
 <template>
-  <b-tabs class="mt-3" content-class="mt-3">
+  <b-tabs class="mt-3">
     <b-tab title="Current" active>
       <todos-list :todos='current' />
     </b-tab>
