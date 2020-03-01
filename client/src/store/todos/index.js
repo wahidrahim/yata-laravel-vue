@@ -1,3 +1,5 @@
+import axios from 'axios'
+
 export default {
   namespaced: true,
   state: {
@@ -17,37 +19,10 @@ export default {
     ADD_TODO: (state, todo) => state.todos.push(todo)
   },
   actions: {
-    GET_TODOS: ({ commit }) => {
-      commit('SET_TODOS', [
-        {
-          id: 1,
-          task: 'some task',
-          archived: false,
-          completed: false,
-          createdAt: '2020-01-01'
-        },
-        {
-          id: 2,
-          task: 'some other task',
-          archived: true,
-          completed: true,
-          createdAt: '2020-01-01'
-        },
-        {
-          id: 3,
-          task: 'some other archived task',
-          archived: true,
-          completed: false,
-          createdAt: '2020-01-01'
-        },
-        {
-          id: 4,
-          task: 'yet another task',
-          archived: false,
-          completed: true,
-          createdAt: '2020-01-01'
-        }
-      ])
+    GET_TODOS: async ({ commit }) => {
+      const res = await axios.get('http://localhost:3000/api/todos')
+
+      console.log(res)
     },
     ADD_TODO: ({ commit, state }, task) => {
       commit('ADD_TODO', {
