@@ -3,10 +3,7 @@
     <div class="todo-container m-3">
       <b-card>
         <b-form>
-          <b-form-input type="text" />
-          <b-button class="mt-2" type="submit" variant="primary" block>
-            Add
-          </b-button>
+          <todos-input />
           <todos />
         </b-form>
       </b-card>
@@ -15,11 +12,14 @@
 </template>
 
 <script>
+import TodosInput from './components/TodosInput'
 import Todos from './components/Todos'
+
 import TodosActions from './store/todos/actions/todos-actions'
 
 export default {
   components: {
+    TodosInput,
     Todos
   },
   created() {
