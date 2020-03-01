@@ -1,9 +1,9 @@
 <template>
   <div id="app">
-    <div class="todo-container m-3">
+    <div class="todos-container m-3">
       <b-card>
         <todos-input-form />
-        <todos />
+        <todos-tabs />
       </b-card>
     </div>
   </div>
@@ -11,12 +11,12 @@
 
 <script>
 import TodosInputForm from './components/TodosInputForm'
-import Todos from './components/Todos'
+import TodosTabs from './components/TodosTabs'
 
 export default {
   components: {
     TodosInputForm,
-    Todos
+    TodosTabs
   },
   created() {
     this.$store.dispatch('todos/GET_TODOS')
@@ -25,7 +25,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.todo-container {
-  max-width: 320px;
+#app {
+  display: flex;
+  justify-content: center;
+
+  .todos-container {
+    max-width: 480px;
+    flex-grow: 1;
+  }
 }
 </style>
