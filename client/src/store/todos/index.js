@@ -13,7 +13,8 @@ export default {
       const todo = state.todos.find(todo => todo.id === id)
 
       todo.completed = completed
-    }
+    },
+    ADD_TODO: (state, todo) => state.todos.push(todo)
   },
   actions: {
     GET_TODOS: ({ commit }) => {
@@ -47,6 +48,15 @@ export default {
           createdAt: '2020-01-01'
         }
       ])
+    },
+    ADD_TODO: ({ commit, state }, task) => {
+      commit('ADD_TODO', {
+        id: state.todos.length + 1,
+        task,
+        archived: false,
+        completed: false,
+        createdAt: new Date()
+      })
     },
     UPDATE_TODO: ({ commit }, { id, completed }) => {
       commit('SET_TASK_COMPLETION', { id, completed })

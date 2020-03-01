@@ -2,22 +2,20 @@
   <div id="app">
     <div class="todo-container m-3">
       <b-card>
-        <b-form>
-          <todos-input />
-          <todos />
-        </b-form>
+        <todos-input-form />
+        <todos />
       </b-card>
     </div>
   </div>
 </template>
 
 <script>
-import TodosInput from './components/TodosInput'
+import TodosInputForm from './components/TodosInputForm'
 import Todos from './components/Todos'
 
 export default {
   components: {
-    TodosInput,
+    TodosInputForm,
     Todos
   },
   created() {
