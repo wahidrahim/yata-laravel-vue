@@ -15,15 +15,13 @@
 import TodosInput from './components/TodosInput'
 import Todos from './components/Todos'
 
-import TodosActions from './store/todos/actions/todos-actions'
-
 export default {
   components: {
     TodosInput,
     Todos
   },
   created() {
-    this.$store.dispatch(TodosActions.GET_TODOS)
+    this.$store.dispatch('todos/GET_TODOS')
   }
 }
 </script>
