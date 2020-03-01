@@ -5,10 +5,7 @@
         @change="updateTodo(todo.id, $event)"
         :checked="todo.completed"
       >
-        <strike v-if="todo.completed">
-          {{ todo.task }}
-        </strike>
-        <span v-else>
+        <span :class="{ completed: todo.completed }">
           {{ todo.task }}
         </span>
       </b-form-checkbox>
@@ -37,5 +34,9 @@ export default {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
   border-top: none;
+}
+
+.todos-list ::v-deep .list-group-item .completed {
+  text-decoration: line-through;
 }
 </style>
