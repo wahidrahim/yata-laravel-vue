@@ -1,32 +1,31 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+    <div class="todo-container m-3">
+      <b-card>
+        <todos-input-form />
+        <todos />
+      </b-card>
     </div>
-    <router-view/>
   </div>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+import TodosInputForm from './components/TodosInputForm'
+import Todos from './components/Todos'
 
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+export default {
+  components: {
+    TodosInputForm,
+    Todos
+  },
+  created() {
+    this.$store.dispatch('todos/GET_TODOS')
   }
+}
+</script>
+
+<style lang="scss" scoped>
+.todo-container {
+  max-width: 320px;
 }
 </style>
