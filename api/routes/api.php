@@ -26,3 +26,10 @@ Route::get('todos', function () {
 Route::post('todos', function (Request $request) {
     return Todo::create($request->all());
 });
+
+Route::put('todos/{id}', function(Request $request, $id) {
+    $todo = Todo::findOrFail($id);
+    $todo->update($request->all());
+
+    return $todo;
+});

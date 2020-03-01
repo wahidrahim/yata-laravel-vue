@@ -28,13 +28,19 @@ export default {
 
       commit('SET_TODOS', res.data)
     },
-    ADD_TODO: async ({ dispatch }, { task }) => {
-      await api.post('/todos', { task })
+    ADD_TODO: async ({ dispatch }, task) => {
+      await api.post('/todos', {
+        task
+      })
 
       dispatch('GET_TODOS')
     },
-    UPDATE_TODO: ({ commit }, { id, completed }) => {
-      commit('SET_TASK_COMPLETION', { id, completed })
+    UPDATE_TODO: async ({ commit, dispatch }, { id, completed }) => {
+      await api.put(`/todos/${id}`, {
+        completed
+      })
+
+      dispatch('GET_TODOS')
     }
   }
 }
