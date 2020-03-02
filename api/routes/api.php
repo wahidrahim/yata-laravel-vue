@@ -15,21 +15,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
-
-Route::get('todos', function () {
-    return Todo::all();
-});
-
-Route::post('todos', function (Request $request) {
-    return Todo::create($request->all());
-});
-
-Route::put('todos/{id}', function(Request $request, $id) {
-    $todo = Todo::findOrFail($id);
-    $todo->update($request->all());
-
-    return $todo;
-});
+Route::get('todos', 'TodoController@index');
+Route::post('todos', 'TodoController@store');
+Route::put('todos/{id}', 'TodoController@update');

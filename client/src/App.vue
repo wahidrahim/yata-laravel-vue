@@ -19,7 +19,7 @@ export default {
     TodosTabs
   },
   created() {
-    this.$store.dispatch('todos/GET_TODOS')
+    this.$store.dispatch('todos/GET_ALL')
   }
 }
 </script>

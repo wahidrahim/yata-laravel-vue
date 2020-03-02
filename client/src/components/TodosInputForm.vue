@@ -18,7 +18,7 @@ export default {
   },
   methods: {
     addTodo() {
-      this.$store.dispatch('todos/ADD_TODO', this.task)
+      this.$store.dispatch('todos/ADD_NEW', this.task)
       this.task = ''
     }
   }

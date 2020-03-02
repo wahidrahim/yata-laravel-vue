@@ -19,28 +19,27 @@ export default {
       const todo = state.todos.find(todo => todo.id === id)
 
       todo.completed = completed
-    },
-    ADD_TODO: (state, todo) => state.todos.push(todo)
+    }
   },
   actions: {
-    GET_TODOS: async ({ commit }) => {
+    GET_ALL: async ({ commit }) => {
       const res = await api.get('/todos')
 
       commit('SET_TODOS', res.data)
     },
-    ADD_TODO: async ({ dispatch }, task) => {
+    ADD_NEW: async ({ dispatch }, task) => {
       await api.post('/todos', {
         task
       })
 
-      dispatch('GET_TODOS')
+      dispatch('GET_ALL')
     },
-    UPDATE_TODO: async ({ commit, dispatch }, { id, completed }) => {
-      await api.put(`/todos/${id}`, {
+    TOGGLE_COMPLETE: async ({ commit, dispatch }, { todo, completed }) => {
+      await api.put(`/todos/${todo.id}`, {
         completed
       })
 
-      dispatch('GET_TODOS')
+      dispatch('GET_ALL')
     }
   }
 }
