@@ -27,6 +27,7 @@ export default {
 
       commit('SET_TODOS', res.data)
     },
+
     ADD_NEW: async ({ dispatch }, task) => {
       await api.post('/todos', {
         task
@@ -34,10 +35,17 @@ export default {
 
       dispatch('GET_ALL')
     },
-    TOGGLE_COMPLETE: async ({ commit, dispatch }, { todo, completed }) => {
+
+    TOGGLE_COMPLETE: async ({ dispatch }, { todo, completed }) => {
       await api.put(`/todos/${todo.id}`, {
         completed
       })
+
+      dispatch('GET_ALL')
+    },
+
+    DESTROY: async ({ dispatch }, todo) => {
+      await api.delete(`/todos/${todo.id}`)
 
       dispatch('GET_ALL')
     }

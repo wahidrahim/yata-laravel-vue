@@ -14,7 +14,7 @@
           {{ todo.task }}
         </span>
       </b-form-checkbox>
-      <span class="icon">
+      <span class="icon" @click='destroyTodo(todo)'>
         <b-icon icon="trash" />
       </span>
     </b-list-group-item>
@@ -37,6 +37,10 @@ export default {
   methods: {
     updateTodo(todo, completed) {
       this.$store.dispatch('todos/TOGGLE_COMPLETE', { todo, completed })
+    },
+
+    destroyTodo(todo) {
+      this.$store.dispatch('todos/DESTROY', todo)
     }
   }
 }

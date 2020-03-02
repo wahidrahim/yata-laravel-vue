@@ -24,4 +24,15 @@ class TodoController extends Controller
 
         return $todo;
     }
+
+    public function delete(Request $request, $id)
+    {
+        $todo = Todo::findOrFail($id);
+        $todo->delete();
+
+        return [
+            'message' => 'successfully deleted',
+            'todo' => $todo
+        ];
+    }
 }
