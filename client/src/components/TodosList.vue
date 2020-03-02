@@ -5,6 +5,7 @@
       v-for="todo in todos"
       :key="todo.id"
     >
+      <!-- Toggle Todo completion -->
       <b-form-checkbox
         class="d-inline-block"
         @change="toggleComplete(todo, $event)"
@@ -14,6 +15,8 @@
           {{ todo.task }}
         </span>
       </b-form-checkbox>
+
+      <!-- Togggle archiving Todos -->
       <span
         class="icon-archive ml-auto mr-3"
         v-if="todo.archived"
@@ -28,6 +31,8 @@
       >
         <b-icon icon="archive" />
       </span>
+
+      <!-- Delete Todo item -->
       <span class="icon-delete" @click="destroyTodo(todo)">
         <b-icon icon="backspace" />
       </span>
@@ -42,12 +47,14 @@ export default {
   components: {
     BIcon
   },
+
   props: {
     todos: {
       required: true,
       type: Array
     }
   },
+
   methods: {
     toggleComplete(todo, completed) {
       this.$store.dispatch('todos/TOGGLE_COMPLETE', { todo, completed })
