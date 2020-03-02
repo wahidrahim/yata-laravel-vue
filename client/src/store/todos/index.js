@@ -44,6 +44,14 @@ export default {
       dispatch('GET_ALL')
     },
 
+    TOGGLE_ARCHIVE: async ({ dispatch }, todo) => {
+      await api.put(`/todos/${todo.id}`, {
+        archived: !todo.archived
+      })
+
+      dispatch('GET_ALL')
+    },
+
     DESTROY: async ({ dispatch }, todo) => {
       await api.delete(`/todos/${todo.id}`)
 
