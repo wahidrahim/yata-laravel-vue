@@ -86,11 +86,11 @@ export default {
   display: flex;
 
   .icon-archive:hover {
-    color: green;
+    color: var(--primary);
   }
 
   .icon-delete:hover {
-    color: red;
+    color: var(--danger);
   }
 }
 </style>
