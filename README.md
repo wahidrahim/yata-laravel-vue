@@ -2,6 +2,7 @@
 ## Now with 100% more Laravel and Vue!
 
 ### Requirements:
+  - docker-compose
   - php
   - composer
   - yarn
