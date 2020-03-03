@@ -1,5 +1,13 @@
-up:
-	docker-composer up
+db:
+	docker-compose up -d
 
-migrate:
-	docker exec -it api php artisan migrate:fresh
+laravel:
+	cd api &&\
+	composer install &&\
+	php artisan migrate:fresh &&\
+	php artisan serve
+
+vue:
+	cd client &&\
+	yarn &&\
+	yarn serve
