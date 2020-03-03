@@ -1,20 +1,18 @@
-```
-git clone git@github.com:wahidrahim/yata-laravel-vue.git
-cd yata-laravel-vue
+# Yet Another Todo App (YATA)
+## now with 100% more Laravel + Vue!
 
-# Setup Laravel api
-cd api
-composer install
-php artisan serve
-cd .. # Go back to directory root
-docker-compose up -d db # Start mysql database
-cd api
-php artisan migrate:fresh # Create todos table
+### Requirements:
+  - php
+  - composer
+  - yarn
 
-# Setup Vue client
-cd ../client
-yarn
-yarn serve # Start Vue app
+### Steps to set up:
 
-# Visit http://localhost:8080
-```
+1. Clone repository: `git clone git@github.com:wahidrahim/yata-laravel-vue.git`
+2. Open two separate terminal windows
+3. In the first terminal `cd` into `yata-laravel-vue` and run `make laravel`
+5. In the second terminal `cd` into `yata-laravel-vue` and run `make vue`
+
+The two processes (api and vue client) should be started.
+
+You should now be able to visit: `http://localhost:8080` to see the app in action.
