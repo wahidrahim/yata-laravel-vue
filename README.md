@@ -1,5 +1,5 @@
 # Yet Another Todo App (YATA)
-## now with 100% more Laravel and Vue!
+## Now with 100% more Laravel and Vue!
 
 ### Requirements:
   - php
